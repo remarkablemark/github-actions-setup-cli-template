@@ -1,0 +1,11 @@
+name: github-actions-typescript-template
+description: GitHub Actions TypeScript template
+author: remarkablemark
+inputs:
+  version:
+    description: Description
+    required: false
+    default: 1.2.3
+runs:
+  using: node16
+  main: dist/index.js

@@ -1,0 +1,60 @@
+name: build
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint commit message
+        run: npx commitlint --from=HEAD~1
+
+      - name: Lint codebase
+        run: npm run lint
+
+      - name: Check type
+        run: npm run lint:tsc
+
+      - name: Build artifact
+        run: npm run build
+
+      - name: Run tests
+        run: npm run test:ci
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3
+
+      - name: Run action
+        uses: ./
+
+      - name: Check Git working tree
+        run: |
+          if [[ $(git diff --stat) != '' ]]; then
+            echo 'Detected uncommitted changes. See status below:'
+            git diff
+            exit 1
+          fi
+
+  # action should work on a clean machine without building
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run action
+        uses: ./
+        with:
+          version: 2.3.4
