@@ -1,8 +1,8 @@
-# github-actions-typescript-template
+# github-actions-setup-cli-template
 
-[![build](https://github.com/remarkablemark/github-actions-typescript-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-typescript-template/actions/workflows/build.yml)
+[![build](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml)
 
-GitHub Actions TypeScript template. Inspired by [actions/typescript-action](https://github.com/actions/typescript-action).
+GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh).
 
 ## Usage
 
@@ -12,7 +12,7 @@ See [action.yml](action.yml)
 
 ```yaml
 steps:
-  - uses: remarkablemark/github-actions-typescript-template@v1
+  - uses: remarkablemark/github-actions-setup-cli-template@v1
 ```
 
 ## Inputs
@@ -22,7 +22,7 @@ steps:
 **Optional**: The version. Defaults to `1.2.3`. Example:
 
 ```yaml
-- uses: remarkablemark/github-actions-typescript-template@v1
+- uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
     version: 1.2.3
 ```

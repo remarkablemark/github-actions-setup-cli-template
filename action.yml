@@ -1,5 +1,5 @@
-name: github-actions-typescript-template
-description: GitHub Actions TypeScript template
+name: github-actions-setup-cli-template
+description: GitHub Actions setup CLI template
 author: remarkablemark
 inputs:
   version:
