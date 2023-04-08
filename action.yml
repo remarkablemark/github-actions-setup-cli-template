@@ -3,9 +3,9 @@ description: GitHub Actions setup CLI template
 author: remarkablemark
 inputs:
   version:
-    description: Description
+    description: CLI version
     required: false
-    default: 1.2.3
+    default: 2.27.0
 runs:
   using: node16
   main: dist/index.js

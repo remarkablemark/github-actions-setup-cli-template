@@ -19,12 +19,12 @@ steps:
 
 ### `version`
 
-**Optional**: The version. Defaults to `1.2.3`. Example:
+**Optional**: The CLI version. Defaults to `2.27.0`. Example:
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
-    version: 1.2.3
+    version: 2.27.0
 ```
 
 ## Contributions
