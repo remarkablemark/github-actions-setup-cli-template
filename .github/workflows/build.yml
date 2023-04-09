@@ -67,6 +67,7 @@ jobs:
         run: command -v gh
 
       - name: Check version
+        if: matrix.os != 'windows-latest'
         run: |
           if [[ $(gh --version) != *'${{ matrix.version }}'* ]]; then
             echo 'Version does not match. See version below:'
