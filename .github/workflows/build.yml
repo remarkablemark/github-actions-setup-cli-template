@@ -27,9 +27,6 @@ jobs:
       - name: Check type
         run: npm run lint:tsc
 
-      - name: Build artifact
-        run: npm run build
-
       - name: Run tests
         run: npm run test:ci
 
@@ -38,6 +35,9 @@ jobs:
 
       - name: Run action
         uses: ./
+
+      - name: Build artifact
+        run: npm run build
 
       - name: Check Git working tree
         run: |
@@ -49,7 +49,10 @@ jobs:
 
   # action should work on a clean machine without building
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -57,4 +60,9 @@ jobs:
       - name: Run action
         uses: ./
         with:
-          version: 2.3.4
+          version: 1.14.0
+
+      - name: Run action
+        run: |
+          command -v gh
+          gh --version

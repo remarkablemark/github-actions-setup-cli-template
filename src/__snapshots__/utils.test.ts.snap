@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when OS is "darwin" and arch is "arm" gets download object 1`] = `
+{
+  "binPath": "gh_1.2.3_macOS_arm/bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_macOS_arm.tar.gz",
+}
+`;
+
+exports[`when OS is "darwin" and arch is "x32" gets download object 1`] = `
+{
+  "binPath": "gh_1.2.3_macOS_386/bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_macOS_386.tar.gz",
+}
+`;
+
+exports[`when OS is "darwin" and arch is "x64" gets download object 1`] = `
+{
+  "binPath": "gh_1.2.3_macOS_amd64/bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_macOS_amd64.tar.gz",
+}
+`;
+
+exports[`when OS is "linux" and arch is "arm" gets download object 1`] = `
+{
+  "binPath": "gh_1.2.3_linux_arm/bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_linux_arm.tar.gz",
+}
+`;
+
+exports[`when OS is "linux" and arch is "x32" gets download object 1`] = `
+{
+  "binPath": "gh_1.2.3_linux_386/bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_linux_386.tar.gz",
+}
+`;
+
+exports[`when OS is "linux" and arch is "x64" gets download object 1`] = `
+{
+  "binPath": "gh_1.2.3_linux_amd64/bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_linux_amd64.tar.gz",
+}
+`;
+
+exports[`when OS is "win32" and arch is "arm" gets download object 1`] = `
+{
+  "binPath": "bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_windows_arm.zip",
+}
+`;
+
+exports[`when OS is "win32" and arch is "x32" gets download object 1`] = `
+{
+  "binPath": "bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_windows_386.zip",
+}
+`;
+
+exports[`when OS is "win32" and arch is "x64" gets download object 1`] = `
+{
+  "binPath": "bin",
+  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_windows_amd64.zip",
+}
+`;

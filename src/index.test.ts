@@ -1,24 +1,52 @@
 import * as core from '@actions/core';
+import * as tc from '@actions/tool-cache';
+import os from 'os';
 
 import { run } from '.';
 
 jest.mock('@actions/core');
+jest.mock('@actions/tool-cache');
+jest.mock('os');
 
 const mockedCore = jest.mocked(core);
+const mockedTc = jest.mocked(tc);
+const mockedOs = jest.mocked(os);
 
 beforeEach(() => {
   jest.resetAllMocks();
 });
 
-it('runs action successfully', async () => {
-  const version = '1.2.3';
-  mockedCore.getInput.mockReturnValueOnce(version);
-  await run();
-  expect(mockedCore.debug).toBeCalledWith(`version: ${version}`);
-  expect(mockedCore.setOutput).toBeCalledWith('version', version);
+describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
+  beforeEach(() => {
+    mockedOs.platform.mockReturnValueOnce(os as NodeJS.Platform);
+    mockedOs.arch.mockReturnValueOnce('arm64');
+  });
+
+  it('downloads, extracts, and exposes CLI in PATH', async () => {
+    const version = '1.2.3';
+    const pathToTarball = 'path/to/tarball';
+    const pathToCLI = 'path/to/cli';
+
+    mockedCore.getInput.mockReturnValueOnce('1.2.3');
+    mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
+    const extract = os === 'win32' ? mockedTc.extractZip : mockedTc.extractTar;
+    extract.mockResolvedValueOnce(pathToCLI);
+
+    await run();
+
+    expect(mockedTc.downloadTool).toBeCalledWith(
+      expect.stringContaining(
+        `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_`
+      )
+    );
+    expect(extract).toBeCalledWith(pathToTarball);
+    expect(mockedCore.addPath).toBeCalledWith(
+      expect.stringContaining(pathToCLI)
+    );
+  });
 });
 
-it('runs action with error', async () => {
+it('catches error', async () => {
   const message = 'error';
   mockedCore.getInput.mockImplementationOnce(() => {
     throw new Error(message);
