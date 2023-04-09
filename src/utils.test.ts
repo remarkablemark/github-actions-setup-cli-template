@@ -17,7 +17,7 @@ const table = platforms.reduce(
 );
 
 describe.each(table)('when OS is %p and arch is %p', (os, arch) => {
-  const version = '1.2.3';
+  const version = '2.27.0';
 
   beforeEach(() => {
     jest.resetAllMocks();

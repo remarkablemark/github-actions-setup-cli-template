@@ -2,63 +2,63 @@
 
 exports[`when OS is "darwin" and arch is "arm" gets download object 1`] = `
 {
-  "binPath": "gh_1.2.3_macOS_arm/bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_macOS_arm.tar.gz",
+  "binPath": "gh_2.27.0_macOS_arm/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_arm.tar.gz",
 }
 `;
 
 exports[`when OS is "darwin" and arch is "x32" gets download object 1`] = `
 {
-  "binPath": "gh_1.2.3_macOS_386/bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_macOS_386.tar.gz",
+  "binPath": "gh_2.27.0_macOS_386/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_386.tar.gz",
 }
 `;
 
 exports[`when OS is "darwin" and arch is "x64" gets download object 1`] = `
 {
-  "binPath": "gh_1.2.3_macOS_amd64/bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_macOS_amd64.tar.gz",
+  "binPath": "gh_2.27.0_macOS_amd64/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_amd64.tar.gz",
 }
 `;
 
 exports[`when OS is "linux" and arch is "arm" gets download object 1`] = `
 {
-  "binPath": "gh_1.2.3_linux_arm/bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_linux_arm.tar.gz",
+  "binPath": "gh_2.27.0_linux_arm/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_arm.tar.gz",
 }
 `;
 
 exports[`when OS is "linux" and arch is "x32" gets download object 1`] = `
 {
-  "binPath": "gh_1.2.3_linux_386/bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_linux_386.tar.gz",
+  "binPath": "gh_2.27.0_linux_386/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_386.tar.gz",
 }
 `;
 
 exports[`when OS is "linux" and arch is "x64" gets download object 1`] = `
 {
-  "binPath": "gh_1.2.3_linux_amd64/bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_linux_amd64.tar.gz",
+  "binPath": "gh_2.27.0_linux_amd64/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_amd64.tar.gz",
 }
 `;
 
 exports[`when OS is "win32" and arch is "arm" gets download object 1`] = `
 {
   "binPath": "bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_windows_arm.zip",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_arm.zip",
 }
 `;
 
 exports[`when OS is "win32" and arch is "x32" gets download object 1`] = `
 {
   "binPath": "bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_windows_386.zip",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_386.zip",
 }
 `;
 
 exports[`when OS is "win32" and arch is "x64" gets download object 1`] = `
 {
   "binPath": "bin",
-  "url": "https://github.com/cli/cli/releases/download/v1.2.3/gh_1.2.3_windows_amd64.zip",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_amd64.zip",
 }
 `;

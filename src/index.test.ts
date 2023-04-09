@@ -23,7 +23,7 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
   });
 
   it('downloads, extracts, and exposes CLI in PATH', async () => {
-    const version = '1.2.3';
+    const version = '2.27.0';
     const pathToTarball = 'path/to/tarball';
     const pathToCLI = 'path/to/cli';
 
