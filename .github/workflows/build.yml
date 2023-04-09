@@ -67,7 +67,12 @@ jobs:
         run: command -v gh
 
       - name: Check version
-        run: gh --version
+        run: |
+          if [[ $(gh --version) != *'${{ matrix.version }}'* ]]; then
+            echo 'Version does not match. See version below:'
+            gh --version
+            exit 1
+          fi
 
       - name: Show help
         run: gh --help
