@@ -63,8 +63,11 @@ jobs:
         with:
           cli-version: ${{ matrix.version }}
 
+      - name: Get binary
+        run: command -v gh
+
       - name: Check version
-        run: |
-          command -v gh
-          gh --version
-          gh --help
+        run: gh --version
+
+      - name: Show help
+        run: gh --help
