@@ -27,7 +27,9 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
     const pathToTarball = 'path/to/tarball';
     const pathToCLI = 'path/to/cli';
 
-    mockedCore.getInput.mockReturnValueOnce('1.2.3');
+    mockedCore.getInput.mockImplementationOnce((name) =>
+      name === 'cli-version' ? version : ''
+    );
     mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
     const extract = os === 'win32' ? mockedTc.extractZip : mockedTc.extractTar;
     extract.mockResolvedValueOnce(pathToCLI);

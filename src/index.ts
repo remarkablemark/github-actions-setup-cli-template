@@ -7,7 +7,7 @@ import { getDownloadObject } from './utils';
 export async function run() {
   try {
     // Get version of tool to be installed
-    const version = getInput('version');
+    const version = getInput('cli-version');
 
     // Download the specific version of the tool, e.g. as a tarball/zipball
     const download = getDownloadObject(version);

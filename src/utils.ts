@@ -41,6 +41,8 @@ function getOS(os: NodeJS.Platform) {
 /**
  * Gets download object.
  *
+ * @see {@link https://github.com/cli/cli/releases}
+ *
  * @param version - CLI version
  * @returns - URL and binary path
  */

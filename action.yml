@@ -2,7 +2,7 @@ name: github-actions-setup-cli-template
 description: GitHub Actions setup CLI template
 author: remarkablemark
 inputs:
-  version:
+  cli-version:
     description: CLI version
     required: false
     default: 2.27.0

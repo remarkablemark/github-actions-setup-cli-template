@@ -61,9 +61,10 @@ jobs:
       - name: Run action
         uses: ./
         with:
-          version: ${{ matrix.version }}
+          cli-version: ${{ matrix.version }}
 
       - name: Check version
         run: |
           command -v gh
           gh --version
+          gh --help

@@ -17,14 +17,14 @@ steps:
 
 ## Inputs
 
-### `version`
+### `cli-version`
 
-**Optional**: The CLI version. Defaults to `2.27.0`:
+**Optional**: The CLI [version](https://github.com/cli/cli/releases). Defaults to [`2.27.0`](https://github.com/cli/cli/releases/tag/v2.27.0):
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
-    version: 2.27.0
+    cli-version: 2.27.0
 ```
 
 ## Contributions
