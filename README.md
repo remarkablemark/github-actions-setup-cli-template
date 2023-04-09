@@ -2,7 +2,7 @@
 
 [![build](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml)
 
-GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh).
+GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh). Template from [remarkablemark/github-actions-typescript-template](https://github.com/remarkablemark/github-actions-typescript-template).
 
 ## Usage
 
@@ -19,7 +19,7 @@ steps:
 
 ### `version`
 
-**Optional**: The CLI version. Defaults to `2.27.0`. Example:
+**Optional**: The CLI version. Defaults to `2.27.0`:
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
