@@ -7,8 +7,6 @@ const architecture = {
   x64: 'amd64',
 } as const;
 
-type Arch = keyof typeof architecture;
-
 /**
  * Gets the operating system CPU architecture.
  *
@@ -17,12 +15,13 @@ type Arch = keyof typeof architecture;
  * @param arch - Arch in [arm, x32, x64...]
  * @returns - Return value in [amd64, 386, arm]
  */
-function getArch(arch: Arch) {
-  return architecture[arch] || arch;
+function getArch(arch: NodeJS.Architecture) {
+  return architecture[arch as keyof typeof architecture] || arch;
 }
 
 const platform = {
   darwin: 'macOS',
+  linux: 'linux',
   win32: 'windows',
 } as const;
 
@@ -48,7 +47,7 @@ function getOS(os: NodeJS.Platform) {
  */
 export function getDownloadObject(version: string) {
   const platform = os.platform();
-  const arch = os.arch() as Arch;
+  const arch = os.arch() as NodeJS.Architecture;
 
   const filename = `gh_${version}_${getOS(platform)}_${getArch(arch)}`;
   const extension = platform === 'win32' ? 'zip' : 'tar.gz';
