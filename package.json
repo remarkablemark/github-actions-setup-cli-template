@@ -1,6 +1,6 @@
 {
   "name": "github-actions-setup-cli-template",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0",
   "description": "GitHub Actions setup CLI template",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "src/index.ts",
