@@ -5,9 +5,9 @@ inputs:
   cli-version:
     description: CLI version
     required: false
-    default: 2.27.0
+    default: 2.33.0
 runs:
-  using: node16
+  using: node20
   main: dist/index.js
 branding:
   icon: activity
