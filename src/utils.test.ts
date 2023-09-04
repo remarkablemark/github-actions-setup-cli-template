@@ -13,7 +13,7 @@ const table = platforms.reduce(
     ...testSuites,
     ...architectures.map((arch) => [os, arch] as [string, string]),
   ],
-  [] as [string, string][]
+  [] as [string, string][],
 );
 
 describe.each(table)('when OS is %p and arch is %p', (os, arch) => {

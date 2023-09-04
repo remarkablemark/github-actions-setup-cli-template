@@ -28,7 +28,7 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
     const pathToCLI = 'path/to/cli';
 
     mockedCore.getInput.mockImplementationOnce((name) =>
-      name === 'cli-version' ? version : ''
+      name === 'cli-version' ? version : '',
     );
     mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
     const extract = os === 'win32' ? mockedTc.extractZip : mockedTc.extractTar;
@@ -38,12 +38,12 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
 
     expect(mockedTc.downloadTool).toBeCalledWith(
       expect.stringContaining(
-        `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_`
-      )
+        `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_`,
+      ),
     );
     expect(extract).toBeCalledWith(pathToTarball);
     expect(mockedCore.addPath).toBeCalledWith(
-      expect.stringContaining(pathToCLI)
+      expect.stringContaining(pathToCLI),
     );
   });
 });
