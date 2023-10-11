@@ -40,6 +40,12 @@ jobs:
       - name: Build artifact
         run: npm run build
 
+      - name: Git commit and push
+        if: github.actor == 'dependabot[bot]'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'feat: update build artifacts'
+
       - name: Check Git working tree
         run: |
           if [[ $(git diff --stat) != '' ]]; then
