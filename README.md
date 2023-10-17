@@ -12,8 +12,7 @@ See [action.yml](action.yml)
 **Basic:**
 
 ```yaml
-steps:
-  - uses: remarkablemark/github-actions-setup-cli-template@v1
+- uses: remarkablemark/github-actions-setup-cli-template@v1
 ```
 
 ## Inputs
