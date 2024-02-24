@@ -8,7 +8,7 @@
     "build": "ncc build --minify",
     "build:watch": "tsc --watch",
     "clean": "rm -rf coverage dist",
-    "lint": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.ts,.tsx .",
+    "lint": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.ts .",
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
