@@ -1,5 +1,6 @@
 import { addPath, getInput, setFailed } from '@actions/core';
 import { downloadTool, extractTar, extractZip } from '@actions/tool-cache';
+import path from 'path';
 
 import { getDownloadObject } from './utils';
 
@@ -17,7 +18,7 @@ export async function run() {
     const binaryDirectory = await extract(pathToTarball);
 
     // Expose the tool by adding it to the PATH
-    addPath(binaryDirectory);
+    addPath(path.join(binaryDirectory, download.binPath));
   } catch (error) {
     if (error instanceof Error) {
       setFailed(error.message);
