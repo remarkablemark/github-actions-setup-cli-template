@@ -53,7 +53,18 @@ export function getDownloadObject(version: string) {
   const extension = platform === 'win32' ? 'zip' : 'tar.gz';
 
   return {
-    binPath: platform === 'win32' ? 'bin' : path.join(filename, 'bin'),
+    binaryDirectory: platform === 'win32' ? 'bin' : path.join(filename, 'bin'),
     url: `https://github.com/cli/cli/releases/download/v${version}/${filename}.${extension}`,
   };
+}
+
+/**
+ * Gets CLI path.
+ *
+ * @param directory - Directory
+ * @param name - CLI name
+ * @returns - Binary path
+ */
+export function getBinaryPath(directory: string, name: string) {
+  return path.join(directory, name + (os.platform() === 'win32' ? '.exe' : ''));
 }

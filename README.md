@@ -5,6 +5,19 @@
 
 ⚙️ GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh). Template from [remarkablemark/github-actions-typescript-template](https://github.com/remarkablemark/github-actions-typescript-template).
 
+## Quick Start
+
+```yaml
+name: github-actions-setup-cli-template
+on: push
+jobs:
+  github-actions-setup-cli-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup github-actions-setup-cli-template
+        uses: remarkablemark/github-actions-setup-cli-template@v1
+```
+
 ## Usage
 
 See [action.yml](action.yml)
@@ -25,6 +38,16 @@ See [action.yml](action.yml)
 - uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
     cli-version: 2.33.0
+```
+
+### `cli-name`
+
+**Optional**: The htmlq CLI name. Defaults to `gh`:
+
+```yaml
+- uses: remarkablemark/github-actions-setup-cli-template@v1
+  with:
+    cli-name: gh
 ```
 
 ## Contributions

@@ -74,6 +74,7 @@ jobs:
         uses: ./
         with:
           cli-version: ${{ matrix.version }}
+          cli-name: gh
 
       - name: Locate binary
         run: command -v gh
