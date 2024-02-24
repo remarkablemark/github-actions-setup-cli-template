@@ -75,7 +75,7 @@ jobs:
         with:
           cli-version: ${{ matrix.version }}
 
-      - name: Get binary
+      - name: Locate binary
         run: command -v gh
 
       - name: Check version
