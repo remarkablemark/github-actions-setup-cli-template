@@ -64,7 +64,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        version: [1.14.0, 2.49.0]
+        version: [2.27.0]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
