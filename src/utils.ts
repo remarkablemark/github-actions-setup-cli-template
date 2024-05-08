@@ -3,6 +3,7 @@ import path from 'path';
 
 const architecture = {
   arm: 'arm',
+  arm64: 'arm64',
   x32: '386',
   x64: 'amd64',
 } as const;
