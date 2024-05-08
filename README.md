@@ -32,12 +32,12 @@ See [action.yml](action.yml)
 
 ### `cli-version`
 
-**Optional**: The CLI [version](https://github.com/cli/cli/releases). Defaults to [`2.33.0`](https://github.com/cli/cli/releases/tag/v2.33.0):
+**Optional**: The CLI [version](https://github.com/cli/cli/releases). Defaults to [`2.49.0`](https://github.com/cli/cli/releases/tag/v2.49.0):
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
-    cli-version: 2.33.0
+    cli-version: 2.49.0
 ```
 
 ### `cli-name`
