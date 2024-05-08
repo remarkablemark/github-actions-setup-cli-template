@@ -1,2 +1,6 @@
 export const CLI_NAME = 'gh';
-export const VERSION = '2.33.0';
+
+/**
+ * @see https://github.com/cli/cli/releases
+ */
+export const VERSION = '2.49.0';
