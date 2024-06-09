@@ -43,7 +43,7 @@ See [action.yml](action.yml)
 
 ### `cli-name`
 
-**Optional**: The htmlq CLI name. Defaults to `gh`:
+**Optional**: The CLI name. Defaults to `gh`:
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
