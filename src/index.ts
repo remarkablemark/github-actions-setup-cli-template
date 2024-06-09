@@ -13,7 +13,7 @@ import { getBinaryPath, getDownloadObject } from './utils';
 
 export async function run() {
   try {
-    // Get the version of the tool to be installed
+    // Get the version and name of the tool to be installed
     const version = getInput('cli-version') || VERSION;
     const name = getInput('cli-name') || CLI_NAME;
 
@@ -25,12 +25,14 @@ export async function run() {
     const extract = download.url.endsWith('.zip') ? extractZip : extractTar;
     const extractDirectory = await extract(pathToTarball);
 
-    // Rename the binary
+    // Get the binary
     const binaryDirectory = path.join(
       extractDirectory,
       download.binaryDirectory,
     );
     const binaryPath = getBinaryPath(binaryDirectory, name);
+
+    // Rename the binary
     if (name !== CLI_NAME) {
       await exec('mv', [getBinaryPath(binaryDirectory, CLI_NAME), binaryPath]);
     }
