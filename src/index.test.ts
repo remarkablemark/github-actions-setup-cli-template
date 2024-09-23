@@ -19,8 +19,8 @@ beforeEach(() => {
   jest.resetAllMocks();
 });
 
-const name = 'cli-name';
-const version = '1.2.3';
+const cliName = 'cli-name';
+const cliVersion = '1.2.3';
 const pathToTarball = 'path/to/tarball';
 const pathToCLI = 'path/to/cli';
 
@@ -32,9 +32,9 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
     mockedCore.getInput.mockImplementation((input) => {
       switch (input) {
         case 'cli-version':
-          return version;
+          return cliVersion;
         case 'cli-name':
-          return name;
+          return cliName;
         default:
           return '';
       }
@@ -50,22 +50,22 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
 
     expect(mockedTc.downloadTool).toHaveBeenCalledWith(
       expect.stringContaining(
-        `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_`,
+        `https://github.com/cli/cli/releases/download/v${cliVersion}/gh_${cliVersion}_`,
       ),
     );
 
     expect(extract).toHaveBeenCalledWith(pathToTarball);
 
     expect(mockedExec.exec).toHaveBeenCalledWith('mv', [
-      expect.stringContaining('/bin/gh'),
-      expect.stringContaining(`/bin/${name}`),
+      expect.stringContaining(`/bin/${cliName}`),
+      expect.stringContaining(`/bin/${cliName}`),
     ]);
 
     expect(mockedTc.cacheFile).toHaveBeenCalledWith(
-      expect.stringContaining(`/bin/${name}`),
-      name,
-      name,
-      version,
+      expect.stringContaining(`/bin/${cliName}`),
+      cliName,
+      cliName,
+      cliVersion,
     );
 
     expect(mockedCore.addPath).toHaveBeenCalledWith(
