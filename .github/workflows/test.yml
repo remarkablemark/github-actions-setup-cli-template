@@ -46,9 +46,6 @@ jobs:
 
       - name: Run action
         uses: ./
-
-      - name: Run action with inputs
-        uses: ./
         with:
           cli-version: ${{ matrix.version }}
           cli-name: gh
