@@ -54,7 +54,7 @@ jobs:
         run: command -v gh
 
       - name: Check version
-        if: matrix.os != 'windows-latest'
+        shell: bash
         run: |
           gh --version &> CLI_VERSION
           if [[ $(cat CLI_VERSION) != *'${{ matrix.version }}'* ]]; then
