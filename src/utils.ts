@@ -13,8 +13,8 @@ const ARCHITECTURE = {
  *
  * @see {@link https://nodejs.org/api/os.html#os_os_arch}
  *
- * @param arch - Arch in [arm, x32, x64...]
- * @returns - Return value in [amd64, 386, arm]
+ * @param arch - Arch in [arm, arm64, x32, x64...]
+ * @returns - Return value in [arm, arm64, 386, amd64]
  */
 function getArch(arch: NodeJS.Architecture) {
   return ARCHITECTURE[arch as keyof typeof ARCHITECTURE] || arch;
@@ -32,7 +32,7 @@ const PLATFORM = {
  * @see {@link https://nodejs.org/api/os.html#os_os_platform}
  *
  * @param os - OS in [darwin, linux, win32...]
- * @returns - Return value in [darwin, linux, windows]
+ * @returns - Return value in [macOS, linux, windows]
  */
 function getOS(os: NodeJS.Platform) {
   return PLATFORM[os as keyof typeof PLATFORM] || os;
