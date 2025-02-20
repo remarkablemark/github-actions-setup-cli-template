@@ -36,7 +36,7 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
         case 'cli-name':
           return cliName;
         default:
-          return '';
+          throw Error(`Invalid input: ${input}`);
       }
     });
   });
