@@ -1,7 +1,7 @@
 import os from 'os';
 import path from 'path';
 
-const architecture = {
+const ARCHITECTURE = {
   arm: 'arm',
   arm64: 'arm64',
   x32: '386',
@@ -17,10 +17,10 @@ const architecture = {
  * @returns - Return value in [amd64, 386, arm]
  */
 function getArch(arch: NodeJS.Architecture) {
-  return architecture[arch as keyof typeof architecture] || arch;
+  return ARCHITECTURE[arch as keyof typeof ARCHITECTURE] || arch;
 }
 
-const platform = {
+const PLATFORM = {
   darwin: 'macOS',
   linux: 'linux',
   win32: 'windows',
@@ -35,7 +35,7 @@ const platform = {
  * @returns - Return value in [darwin, linux, windows]
  */
 function getOS(os: NodeJS.Platform) {
-  return platform[os as keyof typeof platform] || os;
+  return PLATFORM[os as keyof typeof PLATFORM] || os;
 }
 
 /**
