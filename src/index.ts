@@ -40,7 +40,7 @@ export async function run() {
 
       // Rename the binary
       if (cliName !== 'gh') {
-        await exec('mv', [getBinaryPath(binaryDirectory, cliName), binaryPath]);
+        await exec('mv', [getBinaryPath(binaryDirectory, 'gh'), binaryPath]);
       }
     }
 

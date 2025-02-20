@@ -57,7 +57,7 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
     expect(extract).toHaveBeenCalledWith(pathToTarball);
 
     expect(mockedExec.exec).toHaveBeenCalledWith('mv', [
-      expect.stringContaining(`/bin/${cliName}`),
+      expect.stringContaining('/bin/gh'),
       expect.stringContaining(`/bin/${cliName}`),
     ]);
 
