@@ -1,6 +1,5 @@
 # github-actions-setup-cli-template
 
-[![action](https://badgen.net/badge/github/github-actions-setup-cli-template?icon&label)](https://github.com/marketplace/actions/github-actions-setup-cli-template)
 [![version](https://badgen.net/github/release/remarkablemark/github-actions-setup-cli-template)](https://github.com/remarkablemark/github-actions-setup-cli-template/releases)
 [![build](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/github-actions-setup-cli-template/graph/badge.svg?token=PGPJ2Q8HUO)](https://codecov.io/gh/remarkablemark/github-actions-setup-cli-template)
@@ -22,13 +21,13 @@ jobs:
 
 ## Usage
 
-See [action.yml](action.yml)
-
 **Basic:**
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
 ```
+
+See [action.yml](action.yml)
 
 ## Inputs
 
@@ -51,10 +50,6 @@ See [action.yml](action.yml)
   with:
     cli-name: gh
 ```
-
-## Contributions
-
-Contributions are welcome!
 
 ## License
 
