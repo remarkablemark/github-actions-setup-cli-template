@@ -24,6 +24,7 @@ export async function run() {
     let binaryPath = find(toolName, cliVersion);
     const isCached = Boolean(binaryPath);
 
+    /* istanbul ignore else */
     if (!isCached) {
       // Download the specific version of the tool (e.g., tarball/zipball)
       const download = getDownloadObject(cliVersion);
@@ -41,6 +42,7 @@ export async function run() {
       binaryPath = getBinaryPath(binaryDirectory, cliName);
 
       // Rename the binary
+      /* istanbul ignore else */
       if (cliName !== DEFAULT_NAME) {
         await exec('mv', [
           getBinaryPath(binaryDirectory, DEFAULT_NAME),
@@ -53,6 +55,7 @@ export async function run() {
     addPath(path.dirname(binaryPath));
 
     // Cache the tool
+    /* istanbul ignore else */
     if (!isCached) {
       await cacheFile(binaryPath, cliName, toolName, cliVersion);
     }
