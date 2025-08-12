@@ -11,7 +11,7 @@ inputs:
     required: false
     default: gh
 runs:
-  using: node22
+  using: node24
   main: dist/index.js
 branding:
   icon: activity
