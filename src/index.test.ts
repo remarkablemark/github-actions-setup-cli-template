@@ -1,14 +1,15 @@
+import os from 'node:os';
+
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as tc from '@actions/tool-cache';
-import os from 'os';
 
 import { run } from '.';
 
 jest.mock('@actions/core');
 jest.mock('@actions/exec');
 jest.mock('@actions/tool-cache');
-jest.mock('os');
+jest.mock('node:os');
 
 const mockedCore = jest.mocked(core);
 const mockedExec = jest.mocked(exec);

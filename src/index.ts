@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import { addPath, getInput, setFailed } from '@actions/core';
 import { exec } from '@actions/exec';
 import {
@@ -7,7 +9,6 @@ import {
   extractZip,
   find,
 } from '@actions/tool-cache';
-import path from 'path';
 
 import { getBinaryPath, getDownloadObject } from './utils';
 
