@@ -19,10 +19,10 @@ export async function run() {
     // Get the version and name of the tool to be installed
     const cliVersion = getInput('cli-version');
     const cliName = getInput('cli-name') || DEFAULT_NAME;
-    const toolName = cliName;
+    const filename = getBinaryPath('', cliName);
 
     // Find previously cached directory (if applicable)
-    let binaryPath = find(toolName, cliVersion);
+    let binaryPath = find(cliName, cliVersion);
     const isCached = Boolean(binaryPath);
 
     /* istanbul ignore else */
@@ -58,7 +58,7 @@ export async function run() {
     // Cache the tool
     /* istanbul ignore else */
     if (!isCached) {
-      await cacheFile(binaryPath, cliName, toolName, cliVersion);
+      await cacheFile(binaryPath, filename, cliName, cliVersion);
     }
   } catch (error) {
     if (error instanceof Error) {
