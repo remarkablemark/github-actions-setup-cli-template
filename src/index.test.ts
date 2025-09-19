@@ -25,10 +25,10 @@ const cliVersion = '1.2.3';
 const pathToTarball = 'path/to/tarball';
 const pathToCLI = 'path/to/cli';
 
-describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
+describe.each(['darwin', 'win32', 'linux'])('when os is %p', (platform) => {
   beforeEach(() => {
-    mockedOs.platform.mockReturnValue(os as NodeJS.Platform);
-    mockedOs.arch.mockReturnValue('arm64');
+    mockedOs.platform.mockReturnValue(platform as NodeJS.Platform);
+    mockedOs.arch.mockReturnValue('arm64' as NodeJS.Architecture);
 
     mockedCore.getInput.mockImplementation((input) => {
       switch (input) {
@@ -44,7 +44,7 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
 
   it('downloads, extracts, and adds CLI to PATH', async () => {
     mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
-    const isWin32 = os === 'win32';
+    const isWin32 = platform === 'win32';
     const extract = isWin32 ? mockedTc.extractZip : mockedTc.extractTar;
     extract.mockResolvedValueOnce(pathToCLI);
 

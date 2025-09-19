@@ -12,13 +12,13 @@ import {
 
 import { getBinaryPath, getDownloadObject } from './utils';
 
-const DEFAULT_NAME = 'gh';
+const TOOL_NAME = 'gh';
 
 export async function run() {
   try {
     // Get the version and name of the tool to be installed
     const cliVersion = getInput('cli-version');
-    const cliName = getInput('cli-name') || DEFAULT_NAME;
+    const cliName = getInput('cli-name');
     const filename = getBinaryPath('', cliName);
 
     // Find previously cached directory (if applicable)
@@ -44,9 +44,9 @@ export async function run() {
 
       // Rename the binary
       /* istanbul ignore else */
-      if (cliName !== DEFAULT_NAME) {
+      if (cliName !== TOOL_NAME) {
         await exec('mv', [
-          getBinaryPath(binaryDirectory, DEFAULT_NAME),
+          getBinaryPath(binaryDirectory, TOOL_NAME),
           binaryPath,
         ]);
       }
