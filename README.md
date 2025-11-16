@@ -1,6 +1,6 @@
 # github-actions-setup-cli-template
 
-[![version](https://badgen.net/github/release/remarkablemark/github-actions-setup-cli-template)](https://github.com/remarkablemark/github-actions-setup-cli-template/releases)
+[![version](https://img.shields.io/github/release/remarkablemark/github-actions-setup-cli-template)](https://github.com/remarkablemark/github-actions-setup-cli-template/releases)
 [![build](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/github-actions-setup-cli-template/graph/badge.svg?token=PGPJ2Q8HUO)](https://codecov.io/gh/remarkablemark/github-actions-setup-cli-template)
 
