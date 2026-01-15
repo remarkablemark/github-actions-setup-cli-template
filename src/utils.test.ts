@@ -9,10 +9,10 @@ const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
 const architectures = ['arm', 'x32', 'x64'] as NodeJS.Architecture[];
 
 const table = platforms.reduce(
-  (testSuites, os) => [
+  (testSuites, platform) => [
     ...testSuites,
     ...architectures.map(
-      (arch) => [os, arch] as [NodeJS.Platform, NodeJS.Architecture],
+      (arch) => [platform, arch] as [NodeJS.Platform, NodeJS.Architecture],
     ),
   ],
   [] as [NodeJS.Platform, NodeJS.Architecture][],
@@ -35,10 +35,10 @@ describe('getDownloadObject', () => {
 });
 
 describe('getBinaryPath', () => {
-  describe.each(platforms)('when OS is %p', (os) => {
+  describe.each(platforms)('when platform is %p', (platform) => {
     beforeEach(() => {
       jest.resetAllMocks();
-      mockedOs.platform.mockReturnValueOnce(os);
+      mockedOs.platform.mockReturnValueOnce(platform);
     });
 
     it('returns CLI filepath', () => {

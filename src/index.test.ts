@@ -24,8 +24,9 @@ const cliName = 'cli-name';
 const cliVersion = '1.2.3';
 const pathToTarball = 'path/to/tarball';
 const pathToCLI = 'path/to/cli';
+const platforms = ['darwin', 'win32', 'linux'];
 
-describe.each(['darwin', 'win32', 'linux'])('when os is %p', (platform) => {
+describe.each(platforms)('when platform is %p', (platform) => {
   beforeEach(() => {
     mockedOs.platform.mockReturnValue(platform as NodeJS.Platform);
     mockedOs.arch.mockReturnValue('arm64' as NodeJS.Architecture);

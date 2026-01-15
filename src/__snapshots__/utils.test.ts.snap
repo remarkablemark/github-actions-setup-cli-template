@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`getBinaryPath when OS is "darwin" returns CLI filepath 1`] = `"directory/name"`;
+exports[`getBinaryPath when platform is "darwin" returns CLI filepath 1`] = `"directory/name"`;
 
-exports[`getBinaryPath when OS is "linux" returns CLI filepath 1`] = `"directory/name"`;
+exports[`getBinaryPath when platform is "linux" returns CLI filepath 1`] = `"directory/name"`;
 
-exports[`getBinaryPath when OS is "win32" returns CLI filepath 1`] = `"directory/name.exe"`;
+exports[`getBinaryPath when platform is "win32" returns CLI filepath 1`] = `"directory/name.exe"`;
 
 exports[`getDownloadObject when OS is "darwin" and arch is "arm" gets download object 1`] = `
 {
