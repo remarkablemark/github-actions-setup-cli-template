@@ -1,4 +1,4 @@
-import path from 'node:path';
+import { dirname, join } from 'node:path';
 
 import { addPath, getInput, setFailed } from '@actions/core';
 import { exec } from '@actions/exec';
@@ -36,10 +36,7 @@ export async function run() {
       const extractDirectory = await extract(pathToTarball);
 
       // Get the binary
-      const binaryDirectory = path.join(
-        extractDirectory,
-        download.binaryDirectory,
-      );
+      const binaryDirectory = join(extractDirectory, download.binaryDirectory);
       binaryPath = getBinaryPath(binaryDirectory, cliName);
 
       // Rename the binary
@@ -53,7 +50,7 @@ export async function run() {
     }
 
     // Expose the tool by adding it to the PATH
-    addPath(path.dirname(binaryPath));
+    addPath(dirname(binaryPath));
 
     // Cache the tool
     /* istanbul ignore else */
