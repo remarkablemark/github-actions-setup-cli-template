@@ -1,9 +1,13 @@
-import os from 'node:os';
+import { jest } from '@jest/globals';
 
-import { getBinaryPath, getDownloadObject } from './utils';
+const mockedOs = {
+  platform: jest.fn(),
+  arch: jest.fn(),
+};
 
-jest.mock('node:os');
-const mockedOs = jest.mocked(os);
+jest.unstable_mockModule('node:os', () => mockedOs);
+
+const { getBinaryPath, getDownloadObject } = await import('./utils.js');
 
 const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
 const architectures = ['arm', 'x32', 'x64'] as NodeJS.Architecture[];

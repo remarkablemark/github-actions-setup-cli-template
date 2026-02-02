@@ -10,7 +10,18 @@ const config: Config = {
       statements: 100,
     },
   },
-  preset: 'ts-jest',
+  extensionsToTreatAsEsm: ['.ts'],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        useESM: true,
+      },
+    ],
+  },
   testEnvironment: 'node',
 };
 

@@ -1,20 +1,60 @@
-import os from 'node:os';
+import type { arch, platform } from 'node:os';
 
-import * as core from '@actions/core';
-import * as exec from '@actions/exec';
-import * as tc from '@actions/tool-cache';
+import type { addPath, getInput, setFailed } from '@actions/core';
+import type { exec } from '@actions/exec';
+import type {
+  cacheFile,
+  downloadTool,
+  extractTar,
+  extractZip,
+  find,
+} from '@actions/tool-cache';
+import { jest } from '@jest/globals';
 
-import { run } from '.';
+const mockedCore: {
+  getInput: jest.MockedFunction<typeof getInput>;
+  addPath: jest.MockedFunction<typeof addPath>;
+  setFailed: jest.MockedFunction<typeof setFailed>;
+} = {
+  getInput: jest.fn(),
+  addPath: jest.fn(),
+  setFailed: jest.fn(),
+};
 
-jest.mock('@actions/core');
-jest.mock('@actions/exec');
-jest.mock('@actions/tool-cache');
-jest.mock('node:os');
+const mockedExec: {
+  exec: jest.MockedFunction<typeof exec>;
+} = {
+  exec: jest.fn(),
+};
 
-const mockedCore = jest.mocked(core);
-const mockedExec = jest.mocked(exec);
-const mockedTc = jest.mocked(tc);
-const mockedOs = jest.mocked(os);
+const mockedTc: {
+  downloadTool: jest.MockedFunction<typeof downloadTool>;
+  extractTar: jest.MockedFunction<typeof extractTar>;
+  extractZip: jest.MockedFunction<typeof extractZip>;
+  cacheFile: jest.MockedFunction<typeof cacheFile>;
+  find: jest.MockedFunction<typeof find>;
+} = {
+  downloadTool: jest.fn(),
+  extractTar: jest.fn(),
+  extractZip: jest.fn(),
+  cacheFile: jest.fn(),
+  find: jest.fn(),
+};
+
+const mockedOs: {
+  platform: jest.MockedFunction<typeof platform>;
+  arch: jest.MockedFunction<typeof arch>;
+} = {
+  platform: jest.fn(),
+  arch: jest.fn(),
+};
+
+jest.unstable_mockModule('@actions/core', () => mockedCore);
+jest.unstable_mockModule('@actions/exec', () => mockedExec);
+jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
+jest.unstable_mockModule('node:os', () => mockedOs);
+
+const { run } = await import('./index.js');
 
 beforeEach(() => {
   jest.resetAllMocks();
