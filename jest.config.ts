@@ -10,12 +10,12 @@ const config: Config = {
       statements: 100,
     },
   },
-  extensionsToTreatAsEsm: ['.ts'],
+  extensionsToTreatAsEsm: ['.mts', '.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   transform: {
-    '^.+\\.tsx?$': [
+    '^.+\\.m?ts$': [
       'ts-jest',
       {
         useESM: true,
