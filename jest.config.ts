@@ -22,7 +22,6 @@ const config: Config = {
       },
     ],
   },
-  testEnvironment: 'node',
 };
 
 export default config;
