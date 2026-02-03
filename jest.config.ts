@@ -15,12 +15,7 @@ const config: Config = {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   transform: {
-    '^.+\\.m?ts$': [
-      'ts-jest',
-      {
-        useESM: true,
-      },
-    ],
+    '^.+\\.m?ts$': ['ts-jest', { useESM: true }],
   },
 };
 

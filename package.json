@@ -12,7 +12,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
+    "test": "node --experimental-vm-modules $(npx which jest)",
     "test:ci": "CI=true npm test -- --ci --colors --coverage",
     "test:watch": "npm test -- --watch"
   },
