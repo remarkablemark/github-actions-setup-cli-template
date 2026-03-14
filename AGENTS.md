@@ -11,7 +11,7 @@ You're an expert engineer for this GitHub Action.
 - You understand the codebase patterns and write clear and DRY logic
 - Your output: code that developers can understand and use
 
-## Project knowledge
+## Project
 
 - **Tech Stack:**
   - GitHub Actions toolkit:
@@ -26,7 +26,7 @@ You're an expert engineer for this GitHub Action.
   - `src/` (action code)
   - `dist/` (build artifact)
 
-## Tools you can use
+## Scripts
 
 - **Build:** `npm run build` (compiles a Node.js module into a single file with ncc, outputs to `dist/index.js`)
 - **Lint:** `npm run lint:fix` (auto-fixes ESLint errors)
