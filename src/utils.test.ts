@@ -1,16 +1,11 @@
-import type { arch, platform } from 'node:os';
+import os from 'node:os';
 
-import type { MockedFunction } from 'vitest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mockedOs = {
-  platform: vi.fn() as MockedFunction<typeof platform>,
-  arch: vi.fn() as MockedFunction<typeof arch>,
-};
+vi.mock('node:os');
+const mockedOs = vi.mocked(os);
 
-vi.mock('node:os', () => mockedOs);
-
-const { getBinaryPath, getDownloadObject } = await import('./utils.js');
+import { getBinaryPath, getDownloadObject } from './utils.js';
 
 const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
 const architectures = ['arm', 'x32', 'x64'] as NodeJS.Architecture[];

@@ -1,46 +1,23 @@
-import type { arch, platform } from 'node:os';
+import os from 'node:os';
 
-import type { addPath, getInput, setFailed } from '@actions/core';
-import type { exec } from '@actions/exec';
-import type {
-  cacheFile,
-  downloadTool,
-  extractTar,
-  extractZip,
-  find,
-} from '@actions/tool-cache';
-import type { MockedFunction } from 'vitest';
+import * as core from '@actions/core';
+import * as exec from '@actions/exec';
+import * as tc from '@actions/tool-cache';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mockedCore = {
-  getInput: vi.fn() as MockedFunction<typeof getInput>,
-  addPath: vi.fn() as MockedFunction<typeof addPath>,
-  setFailed: vi.fn() as MockedFunction<typeof setFailed>,
-};
+vi.mock('@actions/core');
+const mockedCore = vi.mocked(core);
 
-const mockedExec = {
-  exec: vi.fn() as MockedFunction<typeof exec>,
-};
+vi.mock('@actions/exec');
+const mockedExec = vi.mocked(exec);
 
-const mockedTc = {
-  downloadTool: vi.fn() as MockedFunction<typeof downloadTool>,
-  extractTar: vi.fn() as MockedFunction<typeof extractTar>,
-  extractZip: vi.fn() as MockedFunction<typeof extractZip>,
-  cacheFile: vi.fn() as MockedFunction<typeof cacheFile>,
-  find: vi.fn() as MockedFunction<typeof find>,
-};
+vi.mock('@actions/tool-cache');
+const mockedTc = vi.mocked(tc);
 
-const mockedOs = {
-  platform: vi.fn() as MockedFunction<typeof platform>,
-  arch: vi.fn() as MockedFunction<typeof arch>,
-};
+vi.mock('node:os');
+const mockedOs = vi.mocked(os);
 
-vi.mock('@actions/core', () => mockedCore);
-vi.mock('@actions/exec', () => mockedExec);
-vi.mock('@actions/tool-cache', () => mockedTc);
-vi.mock('node:os', () => mockedOs);
-
-const { run } = await import('./index.js');
+import { run } from './index.js';
 
 beforeEach(() => {
   vi.resetAllMocks();
