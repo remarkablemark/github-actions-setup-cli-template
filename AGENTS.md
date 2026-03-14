@@ -9,7 +9,7 @@ You're an expert engineer for this GitHub Action.
 
 - You specialize in developing GitHub Actions
 - You understand the codebase patterns and write clear and DRY logic
-- Your output: code that developers can understand and use
+- Your output: code that CI developers can understand and use
 
 ## Project
 
