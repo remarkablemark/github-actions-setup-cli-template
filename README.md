@@ -31,24 +31,24 @@ See [action.yml](action.yml)
 
 ## Inputs
 
-### `cli-version`
+### `version`
 
 **Optional**: The CLI [version](https://github.com/cli/cli/releases). Defaults to [`2.49.0`](https://github.com/cli/cli/releases/tag/v2.49.0):
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
-    cli-version: 2.49.0
+    version: 2.49.0
 ```
 
-### `cli-name`
+### `name`
 
 **Optional**: The CLI name. Defaults to `gh`:
 
 ```yaml
 - uses: remarkablemark/github-actions-setup-cli-template@v1
   with:
-    cli-name: gh
+    name: gh
 ```
 
 ## License
