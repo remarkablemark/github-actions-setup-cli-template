@@ -19,19 +19,19 @@ You're an expert engineer for this GitHub Action.
     - @actions/exec 3 (executes cross-platform tools)
     - @actions/tool-cache 4 (downloads and caches tools)
   - TypeScript 5 (strict mode)
-  - @vercel/ncc 0.38 (build tool)
+  - tsup 8 (build tool)
   - Node.js 24 (runtime used to execute the code)
 - **File Structure:**
   - `action.yml` (action metadata)
-  - `src/` (action code)
-  - `dist/` (build artifact)
+  - `src/` (source code)
+  - `dist/index.js` (build artifact)
 
 ## Scripts
 
-- **Build:** `npm run build` (compiles a Node.js module into a single file with ncc, outputs to `dist/index.js`)
+- **Build:** `npm run build` (compiles TypeScript with tsup, outputs to `dist/index.js`)
 - **Lint:** `npm run lint:fix` (auto-fixes ESLint errors)
 - **Type check:** `npm run lint:tsc` (checks TypeScript for errors)
-- **Test:** `npm run test:ci` (runs Jest unit tests, must pass with 100% coverage before commits)
+- **Test:** `npm run test:ci` (runs Vitest tests, must pass with 100% coverage before commit)
 
 ## Standards
 
@@ -59,6 +59,6 @@ function getOutput(a: any, b: any) {
 
 Boundaries:
 
-- ✅ **Always:** Write to `action.yml` and `src/`, run lint, type check, and test before commits, follow naming conventions
+- ✅ **Always:** Write to `action.yml` and `src/`, run lint, type check, and test before commit, follow naming conventions
 - ⚠️ **Ask first:** Adding dependencies, modifying CI/CD config
 - 🚫 **Never:** Commit secrets or API keys, edit `dist/` and `node_modules/`

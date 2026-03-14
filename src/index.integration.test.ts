@@ -34,8 +34,8 @@ it('runs action', () => {
 
   if (result.status !== 0) {
     /* eslint-disable no-console */
-    console.error('stdout:', result.stdout?.toString());
-    console.error('stderr:', result.stderr?.toString());
+    console.error('stdout:', String(result.stdout));
+    console.error('stderr:', String(result.stderr));
     /* eslint-enable no-console */
   }
 
