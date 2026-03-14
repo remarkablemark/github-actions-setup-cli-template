@@ -50,8 +50,8 @@ jobs:
       - name: Run action
         uses: ./
         with:
-          cli-version: ${{ matrix.version }}
-          cli-name: gh
+          version: ${{ matrix.version }}
+          name: gh
 
       - name: Locate binary
         run: command -v gh
