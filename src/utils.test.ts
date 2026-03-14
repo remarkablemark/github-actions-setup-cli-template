@@ -1,11 +1,14 @@
-import { jest } from '@jest/globals';
+import type { arch, platform } from 'node:os';
+
+import type { MockedFunction } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mockedOs = {
-  platform: jest.fn(),
-  arch: jest.fn(),
+  platform: vi.fn() as MockedFunction<typeof platform>,
+  arch: vi.fn() as MockedFunction<typeof arch>,
 };
 
-jest.unstable_mockModule('node:os', () => mockedOs);
+vi.mock('node:os', () => mockedOs);
 
 const { getBinaryPath, getDownloadObject } = await import('./utils.js');
 
@@ -27,7 +30,7 @@ describe('getDownloadObject', () => {
     const version = '2.27.0';
 
     beforeEach(() => {
-      jest.resetAllMocks();
+      vi.resetAllMocks();
       mockedOs.platform.mockReturnValueOnce(os);
       mockedOs.arch.mockReturnValueOnce(arch);
     });
@@ -41,7 +44,7 @@ describe('getDownloadObject', () => {
 describe('getBinaryPath', () => {
   describe.each(platforms)('when platform is %p', (platform) => {
     beforeEach(() => {
-      jest.resetAllMocks();
+      vi.resetAllMocks();
       mockedOs.platform.mockReturnValueOnce(platform);
     });
 

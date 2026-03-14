@@ -9,55 +9,41 @@ import type {
   extractZip,
   find,
 } from '@actions/tool-cache';
-import { jest } from '@jest/globals';
+import type { MockedFunction } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mockedCore: {
-  getInput: jest.MockedFunction<typeof getInput>;
-  addPath: jest.MockedFunction<typeof addPath>;
-  setFailed: jest.MockedFunction<typeof setFailed>;
-} = {
-  getInput: jest.fn(),
-  addPath: jest.fn(),
-  setFailed: jest.fn(),
+const mockedCore = {
+  getInput: vi.fn() as MockedFunction<typeof getInput>,
+  addPath: vi.fn() as MockedFunction<typeof addPath>,
+  setFailed: vi.fn() as MockedFunction<typeof setFailed>,
 };
 
-const mockedExec: {
-  exec: jest.MockedFunction<typeof exec>;
-} = {
-  exec: jest.fn(),
+const mockedExec = {
+  exec: vi.fn() as MockedFunction<typeof exec>,
 };
 
-const mockedTc: {
-  downloadTool: jest.MockedFunction<typeof downloadTool>;
-  extractTar: jest.MockedFunction<typeof extractTar>;
-  extractZip: jest.MockedFunction<typeof extractZip>;
-  cacheFile: jest.MockedFunction<typeof cacheFile>;
-  find: jest.MockedFunction<typeof find>;
-} = {
-  downloadTool: jest.fn(),
-  extractTar: jest.fn(),
-  extractZip: jest.fn(),
-  cacheFile: jest.fn(),
-  find: jest.fn(),
+const mockedTc = {
+  downloadTool: vi.fn() as MockedFunction<typeof downloadTool>,
+  extractTar: vi.fn() as MockedFunction<typeof extractTar>,
+  extractZip: vi.fn() as MockedFunction<typeof extractZip>,
+  cacheFile: vi.fn() as MockedFunction<typeof cacheFile>,
+  find: vi.fn() as MockedFunction<typeof find>,
 };
 
-const mockedOs: {
-  platform: jest.MockedFunction<typeof platform>;
-  arch: jest.MockedFunction<typeof arch>;
-} = {
-  platform: jest.fn(),
-  arch: jest.fn(),
+const mockedOs = {
+  platform: vi.fn() as MockedFunction<typeof platform>,
+  arch: vi.fn() as MockedFunction<typeof arch>,
 };
 
-jest.unstable_mockModule('@actions/core', () => mockedCore);
-jest.unstable_mockModule('@actions/exec', () => mockedExec);
-jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
-jest.unstable_mockModule('node:os', () => mockedOs);
+vi.mock('@actions/core', () => mockedCore);
+vi.mock('@actions/exec', () => mockedExec);
+vi.mock('@actions/tool-cache', () => mockedTc);
+vi.mock('node:os', () => mockedOs);
 
 const { run } = await import('./index.js');
 
 beforeEach(() => {
-  jest.resetAllMocks();
+  vi.resetAllMocks();
 });
 
 const cliName = 'cli-name';

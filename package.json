@@ -12,9 +12,9 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "test": "node --experimental-vm-modules $(npx which jest)",
-    "test:ci": "CI=true npm test -- --ci --colors --coverage",
-    "test:watch": "npm test -- --watch"
+    "test": "vitest",
+    "test:ci": "CI=true vitest --run --coverage",
+    "test:watch": "vitest --watch"
   },
   "dependencies": {
     "@actions/core": "3.0.0",
@@ -27,22 +27,20 @@
     "@eslint/compat": "2.0.3",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",
-    "@types/jest": "30.0.0",
     "@types/node": "25.5.0",
+    "@vitest/coverage-v8": "3.2.4",
     "eslint": "10.0.3",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-tsdoc": "0.5.2",
     "globals": "17.4.0",
     "husky": "9.1.7",
-    "jest": "30.3.0",
     "lint-staged": "16.3.3",
     "prettier": "3.8.1",
-    "ts-jest": "29.4.6",
-    "ts-node": "10.9.2",
     "tsup": "8.5.1",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.57.0"
+    "typescript-eslint": "8.57.0",
+    "vitest": "3.2.4"
   },
   "private": true,
   "license": "MIT"
