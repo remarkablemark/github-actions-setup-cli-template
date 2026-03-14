@@ -12,9 +12,9 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "test": "vitest",
-    "test:ci": "CI=true vitest --run --coverage",
-    "test:watch": "vitest --watch"
+    "test": "vitest run",
+    "test:ci": "CI=true npm test -- --color --coverage",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@actions/core": "3.0.0",
