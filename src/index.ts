@@ -17,8 +17,8 @@ const TOOL_NAME = 'gh';
 export async function run() {
   try {
     // Get the version and name of the tool to be installed
-    const cliVersion = getInput('cli-version');
-    const cliName = getInput('cli-name');
+    const cliVersion = getInput('version');
+    const cliName = getInput('name');
     const filename = getBinaryPath('', cliName);
 
     // Find previously cached directory (if applicable)

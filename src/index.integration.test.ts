@@ -24,8 +24,8 @@ it('runs action', () => {
   const result = spawnSync(nodePath, [actionPath], {
     env: {
       ...process.env,
-      'INPUT_CLI-NAME': 'gh',
-      'INPUT_CLI-VERSION': '2.27.0',
+      INPUT_NAME: 'gh',
+      INPUT_VERSION: '2.27.0',
       RUNNER_TOOL_CACHE: runnerToolCachePath,
       RUNNER_TEMP: runnerTempPath,
     },

@@ -36,9 +36,9 @@ describe.each(platforms)('when platform is %p', (platform) => {
 
     mockedCore.getInput.mockImplementation((input) => {
       switch (input) {
-        case 'cli-version':
+        case 'version':
           return cliVersion;
-        case 'cli-name':
+        case 'name':
           return cliName;
         default:
           throw Error(`Invalid input: ${input}`);
