@@ -5,8 +5,8 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build --minify",
-    "build:watch": "tsc --watch",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
     "clean": "rm -rf coverage dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
@@ -29,7 +29,6 @@
     "@eslint/js": "10.0.1",
     "@types/jest": "30.0.0",
     "@types/node": "25.5.0",
-    "@vercel/ncc": "0.38.4",
     "eslint": "10.0.3",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "12.1.1",
@@ -41,6 +40,7 @@
     "prettier": "3.8.1",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
+    "tsup": "8.5.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.57.0"
   },
