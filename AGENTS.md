@@ -3,60 +3,41 @@ name: dev_agent
 description: Expert technical engineer for this GitHub Action
 ---
 
-## Persona
+## Tech Stack
 
-- You specialize in developing GitHub Actions
-- You understand the codebase patterns and write clear and DRY logic
-- Your output: code that CI developers can understand and use
+| Tool                | Version | Purpose                                           |
+| ------------------- | ------- | ------------------------------------------------- |
+| @actions/core       | 3       | GitHub Actions toolkit (logging, inputs, outputs) |
+| @actions/exec       | 3       | Cross-platform command execution                  |
+| @actions/tool-cache | 4       | Download and cache CLI tools                      |
+| TypeScript          | 6       | Language (strict mode)                            |
+| tsup                | 8       | Build tool                                        |
+| Vitest              | 4       | Test framework                                    |
+| Node.js             | 24      | Runtime                                           |
 
-## Project
+## File Structure
 
-- **Tech Stack:**
-  - GitHub Actions toolkit:
-    - @actions/core 3 (functions for setting results, logging, registering secrets and exporting variables across actions)
-    - @actions/exec 3 (executes cross-platform tools)
-    - @actions/tool-cache 4 (downloads and caches tools)
-  - TypeScript 5 (strict mode)
-  - tsup 8 (build tool)
-  - Node.js 24 (runtime used to execute the code)
-- **File Structure:**
-  - `action.yml` (action metadata)
-  - `src/` (source code)
-  - `dist/index.js` (build artifact)
+- `action.yml` - Action metadata
+- `src/` - Source code
+- `dist/index.js` - Build artifact
 
 ## Scripts
 
-- **Build:** `npm run build` (compiles TypeScript with tsup, outputs to `dist/index.js`)
-- **Lint:** `npm run lint:fix` (auto-fixes ESLint errors)
-- **Type check:** `npm run lint:tsc` (checks TypeScript for errors)
-- **Test:** `npm run test:ci` (runs Vitest tests, must pass with 100% coverage before commit)
+| Command            | Purpose                            |
+| ------------------ | ---------------------------------- |
+| `npm run build`    | Compile to `dist/index.js`         |
+| `npm run lint:fix` | Auto-fix ESLint errors             |
+| `npm run lint:tsc` | Type-check all files               |
+| `npm run test:ci`  | Run tests (100% coverage required) |
 
 ## Standards
 
-Follow these rules for all code you write:
+**Naming:** Functions = `camelCase`, Classes = `PascalCase`, Constants = `UPPER_SNAKE_CASE`
 
-**Naming conventions:**
+**Code style:** Use descriptive names, explicit types. Never use `any`.
 
-- Functions: camelCase (`getArch`, `getDownloadObject`)
-- Classes: PascalCase (`ToolManager`, `Config`)
-- Constants: UPPER_SNAKE_CASE (`CLI_NAME`, `CLI_VERSION`)
+**Boundaries:**
 
-**Code style example:**
-
-```typescript
-// ✅ Good - descriptive names, no `any` types
-function getBinaryPath(directory: string, name: string) {
-  return path.join(directory, name + (os.platform() === 'win32' ? '.exe' : ''));
-}
-
-// ❌ Bad - vague names, `any` types
-function getOutput(a: any, b: any) {
-  return path.join(a, b + (os.platform() === 'win32' ? '.exe' : ''));
-}
-```
-
-Boundaries:
-
-- ✅ **Always:** Write to `action.yml` and `src/`, run lint, type check, and test before commit, follow naming conventions
+- ✅ **Always:** Write to `action.yml` and `src/`; run lint, type check, and test before commit; follow naming conventions
 - ⚠️ **Ask first:** Adding dependencies, modifying CI/CD config
 - 🚫 **Never:** Commit secrets or API keys, edit `dist/` and `node_modules/`
