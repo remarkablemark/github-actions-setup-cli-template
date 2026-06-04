@@ -10,18 +10,18 @@ import { getBinaryPath, getDownloadObject } from './utils.js';
 const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
 const architectures = ['arm', 'x32', 'x64'] as NodeJS.Architecture[];
 
-const table = platforms.reduce(
+const table = platforms.reduce<[NodeJS.Platform, NodeJS.Architecture][]>(
   (testSuites, platform) => [
     ...testSuites,
     ...architectures.map(
       (arch) => [platform, arch] as [NodeJS.Platform, NodeJS.Architecture],
     ),
   ],
-  [] as [NodeJS.Platform, NodeJS.Architecture][],
+  [],
 );
 
 describe('getDownloadObject', () => {
-  describe.each(table)('when OS is %p and arch is %p', (os, arch) => {
+  describe.each(table)('when OS is %s and arch is %s', (os, arch) => {
     const version = '2.27.0';
 
     beforeEach(() => {
@@ -37,7 +37,7 @@ describe('getDownloadObject', () => {
 });
 
 describe('getBinaryPath', () => {
-  describe.each(platforms)('when platform is %p', (platform) => {
+  describe.each(platforms)('when platform is %s', (platform) => {
     beforeEach(() => {
       vi.resetAllMocks();
       mockedOs.platform.mockReturnValueOnce(platform);

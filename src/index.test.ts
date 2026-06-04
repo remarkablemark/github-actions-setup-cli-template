@@ -29,10 +29,10 @@ const pathToTarball = 'path/to/tarball';
 const pathToCLI = 'path/to/cli';
 const platforms = ['darwin', 'win32', 'linux'];
 
-describe.each(platforms)('when platform is %p', (platform) => {
+describe.each(platforms)('when platform is %s', (platform) => {
   beforeEach(() => {
     mockedOs.platform.mockReturnValue(platform as NodeJS.Platform);
-    mockedOs.arch.mockReturnValue('arm64' as NodeJS.Architecture);
+    mockedOs.arch.mockReturnValue('arm64');
 
     mockedCore.getInput.mockImplementation((input) => {
       switch (input) {
@@ -88,5 +88,14 @@ describe('error', () => {
     });
     await run();
     expect(mockedCore.setFailed).toHaveBeenCalledWith(message);
+  });
+
+  it('throws non-error', async () => {
+    mockedCore.getInput.mockImplementationOnce(() => {
+      // eslint-disable-next-line @typescript-eslint/only-throw-error
+      throw 'string error';
+    });
+    await run();
+    expect(mockedCore.setFailed).not.toHaveBeenCalled();
   });
 });
