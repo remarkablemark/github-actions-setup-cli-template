@@ -21,7 +21,7 @@ const table = platforms.reduce(
 );
 
 describe('getDownloadObject', () => {
-  describe.each(table)('when OS is %p and arch is %p', (os, arch) => {
+  describe.each(table)('when OS is %s and arch is %s', (os, arch) => {
     const version = '2.27.0';
 
     beforeEach(() => {
@@ -37,7 +37,7 @@ describe('getDownloadObject', () => {
 });
 
 describe('getBinaryPath', () => {
-  describe.each(platforms)('when platform is %p', (platform) => {
+  describe.each(platforms)('when platform is %s', (platform) => {
     beforeEach(() => {
       vi.resetAllMocks();
       mockedOs.platform.mockReturnValueOnce(platform);
