@@ -32,7 +32,7 @@ const platforms = ['darwin', 'win32', 'linux'];
 describe.each(platforms)('when platform is %s', (platform) => {
   beforeEach(() => {
     mockedOs.platform.mockReturnValue(platform as NodeJS.Platform);
-    mockedOs.arch.mockReturnValue('arm64' as NodeJS.Architecture);
+    mockedOs.arch.mockReturnValue('arm64');
 
     mockedCore.getInput.mockImplementation((input) => {
       switch (input) {
@@ -92,6 +92,7 @@ describe('error', () => {
 
   it('throws non-error', async () => {
     mockedCore.getInput.mockImplementationOnce(() => {
+      // eslint-disable-next-line @typescript-eslint/only-throw-error
       throw 'string error';
     });
     await run();

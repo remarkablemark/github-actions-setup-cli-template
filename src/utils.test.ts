@@ -10,14 +10,14 @@ import { getBinaryPath, getDownloadObject } from './utils.js';
 const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
 const architectures = ['arm', 'x32', 'x64'] as NodeJS.Architecture[];
 
-const table = platforms.reduce(
+const table = platforms.reduce<[NodeJS.Platform, NodeJS.Architecture][]>(
   (testSuites, platform) => [
     ...testSuites,
     ...architectures.map(
       (arch) => [platform, arch] as [NodeJS.Platform, NodeJS.Architecture],
     ),
   ],
-  [] as [NodeJS.Platform, NodeJS.Architecture][],
+  [],
 );
 
 describe('getDownloadObject', () => {

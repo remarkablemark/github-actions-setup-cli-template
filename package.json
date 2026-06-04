@@ -10,7 +10,7 @@
     "clean": "rm -rf coverage dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc -p tsconfig.eslint.json",
     "prepare": "husky",
     "test": "vitest run",
     "test:ci": "CI=true npm test -- --color --coverage",
@@ -24,7 +24,6 @@
   "devDependencies": {
     "@commitlint/cli": "21.0.2",
     "@commitlint/config-conventional": "21.0.2",
-    "@eslint/compat": "2.1.0",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "10.0.1",
     "@types/node": "25.9.1",

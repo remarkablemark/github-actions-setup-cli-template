@@ -17,7 +17,7 @@ enum Architecture {
  * @returns - Return value in [arm, arm64, 386, amd64]
  */
 function getArch(arch: NodeJS.Architecture) {
-  return Architecture[arch as keyof typeof Architecture] || arch;
+  return Architecture[arch as keyof typeof Architecture];
 }
 
 enum Platform {
@@ -35,7 +35,7 @@ enum Platform {
  * @returns - Return value in [macOS, linux, windows]
  */
 function getOS(os: NodeJS.Platform) {
-  return Platform[os as keyof typeof Platform] || os;
+  return Platform[os as keyof typeof Platform];
 }
 
 /**
@@ -48,7 +48,7 @@ function getOS(os: NodeJS.Platform) {
  */
 export function getDownloadObject(version: string) {
   const os = platform();
-  const architecture = arch() as NodeJS.Architecture;
+  const architecture = arch();
 
   const filename = `gh_${version}_${getOS(os)}_${getArch(architecture)}`;
   const extension = os === 'win32' ? 'zip' : 'tar.gz';
