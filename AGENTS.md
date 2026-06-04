@@ -32,12 +32,12 @@ description: Expert technical engineer for this GitHub Action
 
 ## Standards
 
-**Naming:** Functions = `camelCase`, Classes = `PascalCase`, Constants = `UPPER_SNAKE_CASE`
-
-**Code style:** Use descriptive names, explicit types. Never use `any`.
-
-**Boundaries:**
-
-- ✅ **Always:** Write to `action.yml` and `src/`; run lint, type check, and test before commit; follow naming conventions
-- ⚠️ **Ask first:** Adding dependencies, modifying CI/CD config
-- 🚫 **Never:** Commit secrets or API keys, edit `dist/` and `node_modules/`
+- Naming: Functions = `camelCase`, Classes = `PascalCase`, Constants = `UPPER_SNAKE_CASE`
+- Code style: Use descriptive names, explicit types. Never use `any`.
+- Boundaries:
+  - Always: Write to `action.yml` and `src/`; run lint, type check, and test before commit; follow naming conventions
+  - Ask first: Adding dependencies, modifying CI/CD config
+  - Never: Commit secrets or API keys, edit `dist/` and `node_modules/`
+- Testing: Use `// v8 ignore` in tests to exclude unreachable entrypoint guards; use `vi.hoisted()` for mock variables accessed by `vi.mock()` hoisted scopes
+- Commit format: Use Conventional Commits (`type(scope): description`) with bullet points in the body
+- GitHub: Create PR with `.github/PULL_REQUEST_TEMPLATE.md` as a reference
