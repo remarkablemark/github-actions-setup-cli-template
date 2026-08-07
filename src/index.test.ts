@@ -3,7 +3,6 @@ import os from 'node:os';
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as tc from '@actions/tool-cache';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('@actions/core');
 const mockedCore = vi.mocked(core);
