@@ -5,7 +5,9 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "strict": true,
-    "types": ["node", "vitest/globals"]
+    "skipLibCheck": true,
+    "types": ["node", "vitest/globals"],
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "*.ts", "*.mts"]
 }

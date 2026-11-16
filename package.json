@@ -1,8 +1,6 @@
 {
   "name": "github-actions-setup-cli-template",
   "version": "1.0.0-alpha",
-  "description": "GitHub Actions setup CLI template",
-  "author": "Mark <mark@remarkablemark.org>",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsup",
@@ -10,7 +8,7 @@
     "clean": "rm -rf coverage dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "lint:tsc": "tsc -p tsconfig.eslint.json",
+    "lint:tsc": "tsc",
     "prepare": "husky",
     "test": "vitest run",
     "test:ci": "CI=true npm test -- --color --coverage",
@@ -39,6 +37,5 @@
     "typescript-eslint": "8.72.2",
     "vitest": "5.1.0"
   },
-  "private": true,
-  "license": "MIT"
+  "private": true
 }
