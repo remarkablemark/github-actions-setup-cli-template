@@ -31,7 +31,7 @@ export default defineConfig([
 
     languageOptions: {
       parserOptions: {
-        project: ['tsconfig.json'],
+        projectService: {},
         tsconfigRootDir: import.meta.dirname,
       },
     },
